@@ -32,26 +32,27 @@ export class LibrarianController
     @UsePipes(new ValidationPipe())
     updateUser( 
       @Body("bookname")  bookname:string, 
-      @Body("author")  authorname:string, 
+  
       @Body("bookid") bookid:number,
-      @Body("returndate")   returndate:number,
-      @Body("borrowdatw")  borrowdate:number
+      @Body("authorname")  authorname:string, 
+   
+      @Body("   takeinfo")  takeinfo:string,
 
+  
       ): any {
-    return this.librarianService.updateUser(bookname, bookid,borrowdate,returndate,authorname);
+    return this.librarianService.updateUser(bookname,bookid,authorname,takeinfo)
     }
     
     @Put("/updatebook/:bookid")
   updateUserbyid( 
       @Body("bookname") bookname:string, 
-     
-      @Body("author") authorname:string, 
-   
-      @Body("returndate") returndate:number,
-      @Body("borrowdatw") borrowdate:number,
+      @Body("authorname") authorname:string, 
+      @Body("takeinfo") takeinfo:string, 
+      
+      
       @Param("bookid", ParseIntPipe) bookid:number
       ): any {
-    return this.librarianService.updateUserbyid(bookname, bookid,borrowdate,returndate,authorname);
+    return this.librarianService.updateUserbyid(bookname,bookid,authorname,takeinfo)
     }
 
     @Delete("/deletebook/:bookid")

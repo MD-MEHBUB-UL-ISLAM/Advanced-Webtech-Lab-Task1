@@ -10,8 +10,10 @@ export class LibrarianForm {
     @Length(3,8)
     bookname: string;
     authorname:string;
-    borrowdate:string;
-    returndate:string;
+    takeinfo:string;
+
+  
+   
 
 
 

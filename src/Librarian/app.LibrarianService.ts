@@ -16,21 +16,21 @@ getUserByID(bookid):any {
 
 getUserByIDName(qry):any {
     
-    return "the id is "+qry.bookid +" and name is "+qry.bookname;
+    return "the id is "+qry.bookid +" and name is "+qry.bookname+ " author name is "+  qry.authorname+" take info " + qry.takeinfo;
 }
 
 insertUser(mydto:LibrarianForm):any {
-    
-        return "Book Inserted name: " + mydto.bookname+" and id is " + mydto.bookid + "borrow date"+ mydto.borrowdate + "return date"+ mydto.returndate + "author name is"+ mydto.authorname;
+    return "BOOK Inserted name: " + mydto.bookname+" and id is " + mydto.bookid+ " author name is "+  mydto.authorname+" take info " +mydto.takeinfo;  
     }
 
-updateUser(bookname,bookid,borrowdate,returndate,authorname):any {
-        return "Book updated name: "  + bookname+" and id is " + bookid + "borrow date"+ borrowdate + "return date"+ returndate + " author name "+ authorname;   
+
+updateUser(bookname,bookid,authorname,takeinfo):any {
+    return "BOOK updated name: " +bookname+" and id is " +bookid+ " author name is "+  authorname+" take info " +takeinfo;
      }
 
 
-        updateUserbyid(bookname,bookid,authorname,borrowdate,returndate):any {
-        return "Update book where id "  + bookname+" and id is " + bookid + "borrow date"+ borrowdate + "return date"+ returndate + " author name "+ authorname;    
+        updateUserbyid(bookname,bookid,authorname,takeinfo):any {
+            return "Update book where id " +bookid+" and change name to " +bookname+" authorname is "+  authorname+ " take info " +takeinfo;
     }
     deleteUserbyid(bookid):any {
     

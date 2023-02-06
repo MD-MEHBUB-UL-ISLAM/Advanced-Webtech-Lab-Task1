@@ -7,11 +7,11 @@ export class StudentForm {
    
 
     @IsNotEmpty({message: "Please give student's information"})
-    @Length(3,8)
-    firstname: string;
-    lastname:string;
-    Address:string;
-    DOB: string;
+    
+   fullname:string;
+   address:string;
+   CGPA:string;
+ 
 
 
 

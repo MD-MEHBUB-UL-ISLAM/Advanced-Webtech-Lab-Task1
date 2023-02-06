@@ -3,6 +3,7 @@ import { StudentForm } from "./app.StudentForm.dto";
 import { StudentService } from "./app.StudentService";
 
 
+
 @Controller("/student")
 export class StudentController
 { 
@@ -33,24 +34,25 @@ export class StudentController
     updateUser( 
      
       @Body("id") id:number,
-      @Body("fistname") firstname:string, 
-      @Body("lastname") lastname:string, 
-      @Body("DOB") DOB:string, 
-      @Body("Address") Address:string, 
+      @Body("fullname") fullname:string, 
+      @Body("adress") address:string, 
+      @Body("CGPA") CGPA:string, 
+      
       ): any {
-    return this.studentService.updateUser(firstname,lastname,DOB,Address,id);
+    return this.studentService.updateUser(id,fullname,address,CGPA);
     }
     
     @Put("/updatestudent/:id")
-  updateUserbyid( 
-      @Body("fistname") firstname:string, 
-      @Body("lastname") lastname:string, 
-      @Body("DOB") DOB:string, 
-      @Body("Address") Address:string, 
-      @Param("id", ParseIntPipe) id:number
-      ): any {
-    return this.studentService.updateUserbyid(firstname,lastname,DOB,Address,id);
-    }
+    updateUserbyid( 
+
+        @Body("fullname") fullname:string, 
+        @Body("address") address:string, 
+        @Body("CGPA") CGPA:string, 
+  
+        @Param("id", ParseIntPipe) id:number
+        ): any {
+      return this.studentService.updateUserbyid(id,fullname,address,CGPA);
+      }
 
     @Delete("/deletestudent/:id")
   deleteUserbyid( 

@@ -2,11 +2,12 @@ import { Injectable } from "@nestjs/common/decorators";
 import { StudentForm } from "./app.StudentForm.dto";
 
 
+
 @Injectable()
 export class StudentService {
 
 getIndex():string { 
-    return "Student Index"; 
+    return "Admin Index"; 
 
 }
 getUserByID(id):any {
@@ -16,19 +17,19 @@ getUserByID(id):any {
 
 getUserByIDName(qry):any {
     
-    return "the id is "+qry.id +" and name is "+qry.firstname + " " +qry.lastname + "address is" + qry.Address + "Date of birth is" + qry.DOB;
+    return "the id is "+qry.id +" and name is "+qry.fullname+ "address is" +qry.address+"CGPA is"+qry.CGPA;;
 }
 
 insertUser(mydto:StudentForm):any {
     
-        return "Student Inserted name: " + mydto.firstname+" and id is " + mydto.id+ "address is" + mydto.Address + "Date of birth is" + mydto.DOB;
+        return "Student Inserted name: " + mydto.fullname+" and id is " + mydto.id+ "address is"+mydto.address+"CGPA is"+mydto.CGPA;
     }
 
-updateUser(firstname,id,DOB,lastname,Address):any {
-        return "Student updated name: " +firstname+ " "+lastname+ " " + " and id is " +id + "address is" + Address + "Date of birth is" + DOB;
+updateUser(fullname,id,address,CGPA):any {
+        return "Student updated name: " +fullname+" and id is " +id + "address is"+address+"CGPA is"+CGPA;
     }
-updateUserbyid(firstname,lastname,id,Address,DOB):any {
-        return "Update student where id " +firstname+ " "+lastname+ " " + " and id is " +id + "address is" + Address + "Date of birth is" + DOB;;
+updateUserbyid(fullname,id,address,CGPA):any {
+        return "Update student where id " +fullname+" and change name to " +id + "address is"+address+" CGPA is " +CGPA;
     }
     deleteUserbyid(id):any {
     
