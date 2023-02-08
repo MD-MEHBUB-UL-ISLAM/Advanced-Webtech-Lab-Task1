@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { AdminModule } from './Adminitrator/app.AdminModule';
+import { AdminModule } from './Administrator/app.AdminModule';
 import { FacultyModule } from './Faculty/app.FacultyModule';
 import { StudentModule } from './Student/app.StudentModule';
 import { LibrarianModule } from './Librarian/app.LibrarianModule';
