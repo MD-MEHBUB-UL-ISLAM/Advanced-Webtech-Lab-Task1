@@ -28,7 +28,12 @@ import { Faculty } from './app.FacultyInfo';
             resolve(this.facultys);
         });
     }
+   updateFaculty(facultyID,FacultyName,Position,Age):any {
+     
+        return "Faculty updates ID:" +facultyID+" name is "+FacultyName+" Position is "+Position+" Age is "+Age;
+         }
 
+        
     deleteFaculty(facultyID): Promise<any> {
         let id = Number(facultyID);
         return new Promise(resolve => {

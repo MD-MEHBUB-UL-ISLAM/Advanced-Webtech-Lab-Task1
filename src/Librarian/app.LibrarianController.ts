@@ -35,12 +35,13 @@ export class LibrarianController
   
       @Body("bookid") bookid:number,
       @Body("authorname")  authorname:string, 
-   
-      @Body("   takeinfo")  takeinfo:string,
+      @Body("takeinfo")  takeinfo:string,
+      @Body("rating")  rating:number,
+      @Body("registeredSince") registeredSince:Date,
 
   
       ): any {
-    return this.librarianService.updateUser(bookname,bookid,authorname,takeinfo)
+    return this.librarianService.updateUser(bookname,bookid,authorname,takeinfo,rating,registeredSince)
     }
     
     @Put("/updatebook/:bookid")
@@ -48,11 +49,12 @@ export class LibrarianController
       @Body("bookname") bookname:string, 
       @Body("authorname") authorname:string, 
       @Body("takeinfo") takeinfo:string, 
-      
+      @Body("rating")  rating:number,
+      @Body("registeredSince") registeredSince:Date,
       
       @Param("bookid", ParseIntPipe) bookid:number
       ): any {
-    return this.librarianService.updateUserbyid(bookname,bookid,authorname,takeinfo)
+    return this.librarianService.updateUserbyid(bookname,bookid,authorname,takeinfo,rating,registeredSince)
     }
 
     @Delete("/deletebook/:bookid")
