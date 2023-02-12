@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body, Query, Delete,UsePipes,ValidationPipe, Put } from '@nestjs/common';
+import { DefaultValuePipe, Controller, Get, Param, Post, Body, Query, Delete,UsePipes,ValidationPipe, Put } from '@nestjs/common';
 import { FacultyService } from './app.FacultyService';
 import { CreateFacultyDTO } from './app.FacultyForm.dto';
 
@@ -28,7 +28,7 @@ export class FacultyController {
     @Put('/updatef')
     @UsePipes(new ValidationPipe())
     updateFaculty( 
-        @Body("facultyID") facultyID:Number, 
+        @Body("facultyID" new DefaultValuePipe(1000)) facultyID:Number, 
         @Body("FacultyName") FacultyName:Number, 
     
         //@Body("facultyID") facultyID:number,
