@@ -19,7 +19,9 @@ export class StudentController
     }
 
 
+    
     @Get("/findstudent")
+    @UsePipes(new ValidationPipe())
     getUserByIDName(@Query() qry:any): any {
       return this.studentService.getUserByIDName(qry);
     }  
@@ -37,9 +39,12 @@ export class StudentController
       @Body("fullname") fullname:string, 
       @Body("adress") address:string, 
       @Body("CGPA") CGPA:string, 
+      @Body("email") email:string, 
+      @Body("phone") phone:string,
+      @Body("isActive") isActive: boolean,
       
       ): any {
-    return this.studentService.updateUser(id,fullname,address,CGPA);
+    return this.studentService.updateUser(id,fullname,address,CGPA,email,phone,isActive);
     }
     
     @Put("/updatestudent/:id")
@@ -48,10 +53,15 @@ export class StudentController
         @Body("fullname") fullname:string, 
         @Body("address") address:string, 
         @Body("CGPA") CGPA:string, 
+        @Body("email") email:string, 
+        @Body("phone") phone:string,
+      
+        @Body("isActive") isActive: boolean,
+      
   
         @Param("id", ParseIntPipe) id:number
         ): any {
-      return this.studentService.updateUserbyid(id,fullname,address,CGPA);
+      return this.studentService.updateUserbyid(id,fullname,address,CGPA,email,phone,isActive);
       }
 
     @Delete("/deletestudent/:id")

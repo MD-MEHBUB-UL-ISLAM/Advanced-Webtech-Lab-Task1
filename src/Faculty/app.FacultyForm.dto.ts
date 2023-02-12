@@ -1,6 +1,24 @@
+import { IsNotEmpty,IsNumber,IsString,MinLength,MaxLength } from "class-validator";
+
 export class CreateFacultyDTO {
-    readonly facultyID: number;
-    readonly Name: string;
-    readonly Position: string;
-    readonly Age: string;
+    @IsNotEmpty()
+     @IsNumber()
+ 
+
+
+  facultyID: number;
+
+    @IsNotEmpty({message: "Please enter Faculty Name"})
+    @IsString()
+    @MinLength(3)
+    @MaxLength(65)
+    FacultyName: string;
+
+    @IsNotEmpty({message: "Please enter Faculty Position"})
+
+
+    Position: string;
+    @IsNotEmpty({message: "Please enter Faculty Age"})
+
+    Age: string;
 }
