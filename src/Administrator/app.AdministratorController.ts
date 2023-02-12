@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query, Req, Request, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, DefaultValuePipe, Delete, Get, Param, ParseIntPipe, Post, Put, Query, Req, Request, UsePipes, ValidationPipe } from "@nestjs/common";
 import { AdminForm } from "./app.AdminForm.dto";
 import { CourseForm } from "./app.CourseForm.dto";
 import { AssignedFacultyForm } from "./app.AssignedFacultyForm.dto";
@@ -34,7 +34,7 @@ export class AdminController
     @UsePipes(new ValidationPipe())
     updateUser( 
       @Body("name") name:string, 
-      @Body("id") id:number
+      @Body("id", new DefaultValuePipe(1) ) id:number
       ): any {
     return this.adminService.updateUser(name, id);
     }

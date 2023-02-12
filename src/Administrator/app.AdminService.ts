@@ -54,6 +54,6 @@ updateCoursebytitle(title,day,time,roomno):any
 }
 assignFaculty(mydto: AssignedFacultyForm):any
 {
-        return "Assigned faculty for the course "+ mydto.coursename+ " is: "+mydto.facultyname;
+        return "Assigned faculty for the course "+ mydto.coursename+ " is: "+mydto.facultyname+ " faculty email: "+mydto.email;
 }
 }
