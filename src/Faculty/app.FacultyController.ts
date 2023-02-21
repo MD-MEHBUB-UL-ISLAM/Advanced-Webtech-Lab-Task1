@@ -28,7 +28,7 @@ export class FacultyController {
     @Put('/updatef')
     @UsePipes(new ValidationPipe())
     updateFaculty( 
-        @Body("facultyID" new DefaultValuePipe(1000)) facultyID:Number, 
+        @Body("facultyID", new DefaultValuePipe(1000)) facultyID:Number, 
         @Body("FacultyName") FacultyName:Number, 
     
         //@Body("facultyID") facultyID:number,
