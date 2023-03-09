@@ -1,17 +1,28 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AdminModule } from './Administrator/app.AdminModule';
-import { FacultyModule } from './Faculty/app.FacultyModule';
-import { StudentModule } from './Student/app.StudentModule';
-import { LibrarianModule } from './Librarian/app.LibrarianModule';
+
+import { StudentModule } from './Module/app.StudentModule';
+import { StudentRegModule } from './Module/registermodule.module';
+import { CourseModule } from './Module/course.module';
+import { BookModule } from './Module/app.LibrarianModule';
+import { NoteModule } from './Module/app.NotesModule';
 
 
 
 @Module({
-  imports: [AdminModule, FacultyModule, StudentModule, LibrarianModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [StudentModule,StudentRegModule, CourseModule,BookModule,NoteModule, TypeOrmModule.forRoot(
+   { type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'postgres',
+    password: 'root',
+    database: 'ums',
+    autoLoadEntities: true,
+    synchronize: true,
+  }
+  ),],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
