@@ -51,21 +51,21 @@ export class StudentController {
     return this.studentService.getUserByIDName(qry);
   }
   @Post('/insertstudent')
-@UsePipes(new ValidationPipe())
+  @UsePipes(new ValidationPipe({transform:true}))
   insertAdmin(@Body() mydto: StudentForm): any {
     return this.studentService.insertUser(mydto);
   }
 
   @Put('/updatestudent')
   @UseGuards(SessionGuard)
-  @UsePipes(new ValidationPipe())
+  @UsePipes(new ValidationPipe({transform:true}))
   updateAdmin(@Session() session,@Body('fullname') fullname: string): any {
     console.log(session.email);
     return this.studentService.updateUser(fullname, session.email);
   }
 
   @Put('/updatestudent/:id')
-  @UsePipes(new ValidationPipe())
+  @UsePipes(new ValidationPipe({transform:true}))
   updateAdminbyid(
     @Body() mydto: StudentFormUpdate,
     @Param('id', ParseIntPipe) id: number,
@@ -86,6 +86,7 @@ export class StudentController {
    
    
 @Post('/signup')
+@UsePipes(new ValidationPipe({transform:true}))
 @UseInterceptors(FileInterceptor('myfile',
 {storage:diskStorage({
   destination: './uploads',
